@@ -23,66 +23,9 @@ export default function CardList() {
           handleValueChange={handleSaech}
           err={""}
         />
-        <ul className="flex flex-wrap gap-3 justify-center ">
-          {holders.map((holder, index) => {
-            const {
-              theme,
-              icons,
-              rounded,
-              holderName,
-              holderTitle,
-              holderLocation,
-              holderEmail,
-              holderPhone,
-              color1,
-            } = holder;
-
-            if (theme == 0) {
-              return (
-                <Card
-                  key={index}
-                  rounded={rounded}
-                  icons={icons}
-                  id={`${index}`}
-                  holderName={holderName}
-                  holderTitle={holderTitle}
-                  holderLocation={holderLocation}
-                  holderEmail={holderEmail}
-                  holderPhone={holderPhone}
-                  color1={color1}
-                />
-              );
-            } else if (theme == 1) {
-              return (
-                <Card1
-                  key={index}
-                  rounded={rounded}
-                  icons={icons}
-                  id={`${index}`}
-                  holderName={holderName}
-                  holderTitle={holderTitle}
-                  holderLocation={holderLocation}
-                  holderEmail={holderEmail}
-                  holderPhone={holderPhone}
-                  color1={color1}
-                />
-              );
-            }else if (theme == 2) {
-              return (
-                <Card2
-                  key={index}
-                  rounded={rounded}
-                  icons={icons}
-                  id={`${index}`}
-                  holderName={holderName}
-                  holderTitle={holderTitle}
-                  holderLocation={holderLocation}
-                  holderEmail={holderEmail}
-                  holderPhone={holderPhone}
-                  color1={color1}
-                />
-              );
-            }
+        <ul className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+          {holders.map((holderData, index) => {
+            return <Card key={index} holder={holderData} />;
           })}
         </ul>
       </div>

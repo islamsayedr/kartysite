@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Kufi_Arabic } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/organism/Header";
+import Header from "@/components/organism/layout/Header";
 
 const kufi = Noto_Kufi_Arabic ({ subsets: ["arabic", "latin"] });
 

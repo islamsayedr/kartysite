@@ -6,18 +6,34 @@ const qr = "./imgs/qr.png";
 import SocialLink from "./SocialLink";
 import Line from "../atoms/Line";
 import clsx from "clsx";
+interface holderData {
+  // id?: string;
+  rounded: string;
+  icons: string;
+  holderName: string;
+  holderTitle: string;
+  holderLocation: string;
+  holderPhone: string;
+  holderEmail: string;
+  color1: string;
+}
+interface CardProps {
+  holder: holderData;
+}
+export default function Card1({ holder }: CardProps) {
+  const {
+    // id,
+    rounded,
+    icons,
+    holderName,
+    holderTitle,
+    holderLocation,
+    holderPhone,
+    holderEmail,
+    color1,
+  } = holder;
+  const id = "26498";
 
-export default function Card1({
-  id = "1456",
-  rounded = "none",
-  icons = "none",
-  holderName = "اسلام سيد",
-  holderTitle = "مصمم تجربة مستخدم",
-  holderLocation = "الفيوم, مصر",
-  holderPhone = "+201092124608",
-  holderEmail = "islamsayed@gmail.com",
-  color1 = "main",
-}) {
   const [isGrabbing, setIsGrabbing] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
@@ -95,7 +111,7 @@ export default function Card1({
   const cardLink = `http://karty.site/${id}`;
   return (
     <div
-      className="card relative cursor-pointer no-select aspect-[16/9] min-w-[300px] "
+      className="col-auto card relative cursor-pointer no-select aspect-[16/9] min-w-[300px] "
       ref={cardRef}
     >
       {/* front side ------------------------------------------------------------------ */}

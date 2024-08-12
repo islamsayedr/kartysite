@@ -6,18 +6,34 @@ const qr = "./imgs/qr.png";
 import SocialLink from "./SocialLink";
 import Line from "../atoms/Line";
 import clsx from "clsx";
+interface holderData {
+  // id?: string;
+  rounded: string;
+  icons: string;
+  holderName: string;
+  holderTitle: string;
+  holderLocation: string;
+  holderPhone: string;
+  holderEmail: string;
+  color1: string;
+}
+interface CardProps {
+  holder: holderData;
+}
+export default function Card1({ holder }: CardProps) {
+  const {
+    // id,
+    rounded,
+    icons,
+    holderName,
+    holderTitle,
+    holderLocation,
+    holderPhone,
+    holderEmail,
+    color1,
+  } = holder;
+  const id = "26498";
 
-export default function Card1({
-  id = "1456",
-  rounded = "none",
-  icons="none",
-  holderName = "اسلام سيد",
-  holderTitle = "مصمم تجربة مستخدم",
-  holderLocation = "الفيوم, مصر",
-  holderPhone = "+201092124608",
-  holderEmail = "islamsayed@gmail.com",
-  color1 = "main",
-}) {
   const [isGrabbing, setIsGrabbing] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
@@ -94,7 +110,10 @@ export default function Card1({
   }, [isGrabbing, startPos]);
   const cardLink = `http://karty.site/${id}`;
   return (
-    <div className="card relative cursor-pointer no-select" ref={cardRef}>
+    <div
+      className="col-auto card relative cursor-pointer no-select aspect-[16/9] min-w-[300px] "
+      ref={cardRef}
+    >
       {/* front side ------------------------------------------------------------------ */}
       <div
         className={clsx(
@@ -125,9 +144,21 @@ export default function Card1({
         <Line color={color1} />
 
         <div className="flex flex-col gap-2">
-          <MyAddress address={holderLocation} color={`var(--${color1})`} icon={icons}/>
-          <MyEmail email={holderEmail} color={`var(--${color1})`} icon={icons} />
-          <MyPhone phone={holderPhone} color={`var(--${color1})`} icon={icons}/>
+          <MyAddress
+            address={holderLocation}
+            color={`var(--${color1})`}
+            icon={icons}
+          />
+          <MyEmail
+            email={holderEmail}
+            color={`var(--${color1})`}
+            icon={icons}
+          />
+          <MyPhone
+            phone={holderPhone}
+            color={`var(--${color1})`}
+            icon={icons}
+          />
         </div>
         <div
           className={clsx(`w-full h-[5px] absolute bottom-0 left-0`)}
